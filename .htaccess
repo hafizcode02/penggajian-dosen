@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond $1 !^(index\.php|uploads|robots\.txt|favicon\.ico)
+RewriteRule ^new$ index.php?static&new
+RewriteRule ^edit$ index.php?edit
+
+RewriteCond %{THE_REQUEST} /template [NC]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [F]
+
+
+
