@@ -1,33 +1,27 @@
-###################
-What is Gaji-Rev
-###################
+# Gaji-rev(Sistem Penggajian Dosen)
 
-Gaji-Rev Program Adalah Program Tugas Akhir yang dibuat
-oleh siswa tingkat XII SMKN 1 CIREBON untuk memenuhi Persyaratan 
-untuk mengikuti Ujian Nasional.
+Program ini adalah tugas akhir PKL Hafiz Caniago yang boleh anda download untuk referensi atau pembelajaran.
 
-*******************
-Function of Gaji-Rev
-*******************
+> Program ini gratis dan sudah termasuk dengan databasenya.
 
-Gaji-Rev adalah program penggajian dosen yang mungkin masih belum sempurna dan bisa dikembangkan lagi 
-dan sudah saya open-source kan jadi anda bebas mengedit atau menggunakan nya sebagai referensi dalam
-pembuatan program.
+---
+
+## Installation
+
+- Import `db_gaji_rev` kedalam PHPMyadmin.
+- Konfigurasikan file `config.php` sesuai dengan database anda.
+- Lalu jalankan dengan `localhost/gaji-rev`
+- Untuk Login anda bisa merubah username dan passwordnya sendiri dari database, untuk passwordnya menggunakan hash bcrypt
+
+---
+
+## Creator
+
+|**Hafiz Caniago**|
+| :---: |
+| [![https://avatars3.githubusercontent.com/u/53365353?s=400&v=4]()]()    |
+| `Indonesia` |
 
 
-*******************
-Server Requirements
-*******************
-
-
-PHP versi 5.6 atau lebih baru direkomendasikan.
-
-Ini harus bekerja pada 5.3.7 juga, tetapi saya sangat menyarankan Anda untuk tidak menjalankannya
-PHP versi lama seperti itu, karena potensi keamanan dan kinerja
-masalah, serta fitur yang hilang.
-
-***************
-Author
-***************
--Hafiz Caniago
--Student Of SMKN 1 CIREBON
+Wa : <a href="https://wa.me/6285321349681?text=Halo%20Hafiz">+62 85321349681</a><br>
+Fb : <a href="https://web.facebook.com/codehafiz02">Hafiz Caniago </a>
