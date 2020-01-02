@@ -17,7 +17,7 @@ Program ini adalah tugas akhir PKL Hafiz Caniago yang boleh anda download untuk 
 
 ## Creator
 
-|**Hafiz Caniago**|
+|**Hafiz Caniago|
 | :---: |
 | [![https://avatars3.githubusercontent.com/u/53365353?s=400&v=4]()]()    |
 | `Indonesia` |
