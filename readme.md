@@ -5,6 +5,12 @@ Program ini adalah tugas akhir PKL Hafiz Caniago yang boleh anda download untuk 
 > Program ini gratis dan sudah termasuk dengan databasenya.
 
 ---
+### Demo Online
+http://spdosen.000webhostapp.com/
+User : admin02
+Password : admin123
+
+---
 
 ## Installation
 
