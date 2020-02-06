@@ -20,14 +20,3 @@ Password : admin123
 - Untuk Login anda bisa merubah username dan passwordnya sendiri dari database, untuk passwordnya menggunakan hash bcrypt
 
 ---
-
-## Creator
-
-|**Hafiz Caniago**|
-| :---: |
-| [![]()]()    |
-| `Indonesia` |
-
-
-Wa : <a href="https://wa.me/6285321349681?text=Halo%20Hafiz">+62 85321349681</a><br>
-Fb : <a href="https://web.facebook.com/codehafiz02">Hafiz Caniago </a>
