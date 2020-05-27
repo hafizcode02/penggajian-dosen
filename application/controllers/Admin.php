@@ -57,14 +57,14 @@ class Admin extends CI_Controller
 				redirect('data-dosen', 'refresh');
 			} else {
 				$data = array(
-					'nidn' => $this->security->xss_clean(character_filter($this->input->post('nidn'))),
-					'nama' => $this->security->xss_clean(character_filter($this->input->post('nama'))),
-					'alamat' => $this->security->xss_clean(character_filter($this->input->post('alamat'))),
-					'id_jk' => $this->security->xss_clean($this->input->post('jk')),
-					'id_agama' => $this->security->xss_clean(character_filter($this->input->post('agama'))),
-					'id_gaji' => $this->security->xss_clean(character_filter($this->input->post('id_gaji'))),
-					'password' => get_hash($this->input->post('password')),
-					'sertifikasi' => $this->security->xss_clean(character_filter($this->input->post('uangsertifikasi')))
+					'nidn' => $this->input->post('nidn', TRUE),
+					'nama' => $this->input->post('nama', TRUE),
+					'alamat' => $this->input->post('alamat', TRUE),
+					'id_jk' => $this->input->post('jk', TRUE),
+					'id_agama' => $this->input->post('agama', TRUE),
+					'id_gaji' => $this->input->post('id_gaji', TRUE),
+					'password' => get_hash($this->input->post('password', TRUE)),
+					'sertifikasi' => $this->input->post('uangsertifikasi', TRUE)
 				);
 				$this->modcrud->input_dosen('dosen', $data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible alert-custom">
@@ -100,13 +100,13 @@ class Admin extends CI_Controller
 			if ($this->input->post('password') != '') {
 				$data = array(
 					'nidn' => $nidn,
-					'nama' => input_filter($this->input->post('nama')),
-					'alamat' => $this->input->post('alamat'),
-					'id_jk' => input_filter($this->input->post('jk')),
-					'id_agama' => input_filter($this->input->post('agama')),
-					'id_gaji' => input_filter($this->input->post('id_gaji')),
-					'password' => get_hash($this->input->post('password')),
-					'sertifikasi' => input_filter($this->input->post('uangsertifikasi'))
+					'nama' => $this->input->post('nama', TRUE),
+					'alamat' => $this->input->post('alamat', TRUE),
+					'id_jk' => $this->input->post('jk', TRUE),
+					'id_agama' => $this->input->post('agama', TRUE),
+					'id_gaji' => $this->input->post('id_gaji', TRUE),
+					'password' => get_hash($this->input->post('password', TRUE)),
+					'sertifikasi' => $this->input->post('uangsertifikasi', TRUE)
 				);
 				$datafilter = $this->security->xss_clean($data);
 				$this->modcrud->update_dosen($nidn, $datafilter);
@@ -119,12 +119,12 @@ class Admin extends CI_Controller
 			} else {
 				$data = array(
 					'nidn' => $nidn,
-					'nama' => input_filter($this->input->post('nama')),
+					'nama' => $this->input->post('nama', TRUE),
 					'alamat' => $this->input->post('alamat'),
-					'id_jk' => input_filter($this->input->post('jk')),
-					'id_agama' => input_filter($this->input->post('agama')),
-					'id_gaji' => input_filter($this->input->post('id_gaji')),
-					'sertifikasi' => input_filter($this->input->post('uangsertifikasi'))
+					'id_jk' => $this->input->post('jk', TRUE),
+					'id_agama' => $this->input->post('agama', TRUE),
+					'id_gaji' => $this->input->post('id_gaji', TRUE),
+					'sertifikasi' => $this->input->post('uangsertifikasi', TRUE)
 				);
 				$datafilter = $this->security->xss_clean($data);
 				$this->modcrud->update_dosen($nidn, $datafilter);
@@ -214,11 +214,11 @@ class Admin extends CI_Controller
 			redirect('data-gaji', 'refresh');
 		} else {
 			$data = array(
-				'id_status' => input_filter($this->input->post('id_status')),
-				'gapok' => input_filter($this->input->post('gapok')),
-				'kesehatan' => input_filter($this->input->post('kesehatan')),
-				'transport' => input_filter($this->input->post('transport')),
-				'makan' => input_filter($this->input->post('makan')),
+				'id_status' => $this->input->post('id_status', TRUE),
+				'gapok' => $this->input->post('gapok', TRUE),
+				'kesehatan' => $this->input->post('kesehatan', TRUE),
+				'transport' => $this->input->post('transport', TRUE),
+				'makan' => $this->input->post('makan', TRUE),
 			);
 			$datafilter = $this->security->xss_clean($data);
 			$this->modcrud->input_dosen('data_gaji', $datafilter);
@@ -242,10 +242,10 @@ class Admin extends CI_Controller
 	{
 		$id = $this->uri->segment(3);
 		$data = array(
-			'gapok' => input_filter($this->input->post('gapok')),
-			'kesehatan' => input_filter($this->input->post('kesehatan')),
-			'transport' => input_filter($this->input->post('transport')),
-			'makan' => input_filter($this->input->post('makan'))
+			'gapok' => $this->input->post('gapok', TRUE),
+			'kesehatan' => $this->input->post('kesehatan', TRUE),
+			'transport' => $this->input->post('transport', TRUE),
+			'makan' => $this->input->post('makan', TRUE)
 		);
 		$datafilter = $this->security->xss_clean($data);
 		$this->modcrud->update_gaji($id, $datafilter);
@@ -259,7 +259,7 @@ class Admin extends CI_Controller
 
 	function hapus_aksi()
 	{
-		$id = $this->input->post('idhapus');
+		$id = $this->input->post('idhapus', TRUE);
 		if ($this->modcrud->cek_datagaji_delete($id)->num_rows() > 0) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible alert-custom">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -307,12 +307,12 @@ class Admin extends CI_Controller
 				</div>');
 			redirect('data-penggajian');
 		} else {
-			$h1 = $this->input->post('skshadir');
-			$h2 = $this->input->post('absenhadir');
+			$h1 = $this->input->post('skshadir', TRUE);
+			$h2 = $this->input->post('absenhadir', TRUE);
 			$h3 = $abc;
 			$data = array(
-				'nidn' => $this->input->post('dosen'),
-				'tgl_penggajian' => date("Y-m-d", strtotime($this->input->post('tanggal'))),
+				'nidn' => $this->input->post('dosen', TRUE),
+				'tgl_penggajian' => date("Y-m-d", strtotime($this->input->post('tanggal', TRUE))),
 				'gaji_sks' => ($h1 * $h2) * $h3
 			);
 			$datafilter = $this->security->xss_clean($data);
@@ -487,8 +487,8 @@ class Admin extends CI_Controller
 
 	function cetak_sgaji()
 	{
-		$start = date("Y-m-d", strtotime($this->input->post('startdate')));
-		$end = date("Y-m-d", strtotime($this->input->post('enddate')));
+		$start = date("Y-m-d", strtotime($this->input->post('startdate', TRUE)));
+		$end = date("Y-m-d", strtotime($this->input->post('enddate', TRUE)));
 		$sgaji = $this->modcrud->cetak_data_penggajian_seluruh($start, $end)->result();
 		$no = 1;
 		$jumlah = 0;
@@ -622,11 +622,11 @@ class Admin extends CI_Controller
 	function change_password()
 	{
 		$id = $this->session->userdata('id');
-		$pwl = input_filter($this->input->post('pwl'));
+		$pwl = input_filter($this->input->post('pwl', TRUE));
 		$cek = $this->modcrud->cek_dbpassadmin($id)->row();
 		if (empty($pwl)) {
-			$fn = $this->input->post('fullname');
-			$us = $this->input->post('username');
+			$fn = $this->input->post('fullname', TRUE);
+			$us = $this->input->post('username', TRUE);
 			$update = array('username' => $us, 'full_name' => $fn);
 			$this->modcrud->update_pw($id, $update);
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible alert-custom-log">
@@ -642,10 +642,10 @@ class Admin extends CI_Controller
 			redirect('admin-dashboard');
 		} else {
 			if (hash_verified($pwl, $cek->password)) {
-				$fn = $this->input->post('fullname');
-				$us = $this->input->post('username');
-				$pwb = input_filter($this->input->post('pwb'));
-				$pwk = input_filter($this->input->post('pwk'));
+				$fn = $this->input->post('fullname', TRUE);
+				$us = $this->input->post('username', TRUE);
+				$pwb = input_filter($this->input->post('pwb', TRUE));
+				$pwk = input_filter($this->input->post('pwk', TRUE));
 				if ($pwb == $pwk) {
 					$update = array('password' => get_hash($pwb), 'username' => $us, 'full_name' => $fn);
 					$this->modcrud->update_pw($id, $update);
