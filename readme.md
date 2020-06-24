@@ -16,7 +16,7 @@ Program ini adalah tugas akhir PKL Hafiz Caniago yang boleh anda download untuk 
 
 ---
 ### Demo Online
-http://spdosen.000webhostapp.com/
+http://sigadosen.000webhostapp.com/
 User : admin02
 Password : admin123
 

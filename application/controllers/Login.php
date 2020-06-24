@@ -33,7 +33,6 @@ class Login extends CI_Controller
 						$set = array(
 							'nama' => $db->full_name,
 							'username'=> $db->username,
-							'akses' => $db->ket,
 							'id' => $db->idmin
 						);
 						$this->session->set_userdata($set);
